@@ -1,0 +1,22 @@
+venv/
+# Ignore compiled Python files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore large datasets
+data/
+*.csv
+*.tsv
+*.h5
