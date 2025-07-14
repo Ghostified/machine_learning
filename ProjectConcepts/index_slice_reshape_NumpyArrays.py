@@ -49,4 +49,9 @@ print('Train data set', train)
 print('Test data set', test) 
 
 
+# shape
+data = array(data_one)
+print(data_one.shape)
+print(data_three.shape)
+
 
