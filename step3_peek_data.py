@@ -1,6 +1,4 @@
-# %%
-#Data Visualization
-#Univariate plots -- plots for each variable
+#%%
 #load  liblaries 
 from pandas import read_csv
 from pandas.plotting import scatter_matrix
@@ -18,26 +16,26 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.svm  import SVC
 from sklearn.naive_bayes import GaussianNB
 
-
-# %%
+#%%
 #load  datasets
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
 names = ['sepal-length', 'sepal-width', 'petal-length','petal-width', 'class']
-dataset=read_csv(url, names=names)
+dataset  = read_csv(url, names=names)
 
-# %%
-# Univariate plot, i.e plots for each variablle 
-#given that each input variable are numeric , box and whisker for each
-dataset.plot(kind='box',subplots=True, layout=(2,2), sharex=False)
-plt.show()
+#%%
+# Dimensions of the dataset 
+#peek at the data 
+print(dataset.head(20))
 
-# %%
-# Histogram 
-dataset.hist()
-plt.show()
-# %%
-#Parallel cordinates : visualizing multiple variables in parallel
-# fig = px.parallel_coordinates(dataset)
-# fig.show()
+#%%
+#statistical summary 
+#data descriptions: count, min , max , mean
+print()
+print('statistical summary: ')
+print(dataset.describe())
 
-# %%
+#%%
+#class distribution
+#It shows the number of rows that belong to each class as an absolute count
+print()
+print(dataset.groupby('class').size())
