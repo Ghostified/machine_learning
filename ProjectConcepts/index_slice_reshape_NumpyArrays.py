@@ -54,4 +54,9 @@ data = array(data_one)
 print(data_one.shape)
 print(data_three.shape)
 
+# data = array(data_one)
+print('Rows: %d' % data_three.shape[0])
+print('Cols: %d' % data_three.shape[1])
+
+
 
