@@ -59,4 +59,6 @@ print('Rows: %d' % data_three.shape[0])
 print('Cols: %d' % data_three.shape[1])
 
 
-
+# data = array(data_one)
+print('Rows: %d' % data_three.shape[0])
+print('Cols: %d' % data_three.shape[1])
