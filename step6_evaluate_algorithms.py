@@ -1,5 +1,7 @@
 #Algorithm validation
 # load  liblaries 
+# %%
+import pandas as pd
 from pandas import read_csv
 from pandas.plotting import scatter_matrix
 from matplotlib import pyplot as plt
@@ -35,12 +37,11 @@ X_train, X_validation , Y_train , Y_validation = train_test_split(X, y, test_siz
 #build and evaluate  models 
 #spot check algorithms
 models = []
-#models.append(('LR', LogisticRegression(solver='liblinear',multi_class='ovr')))
-models.append(('LR',LogisticRegression()))
+models.append(('LR', LogisticRegression(solver='liblinear',multi_class='ovr')))
 models.append(('LDA', LinearDiscriminantAnalysis()))
 models.append(('KNN', KNeighborsClassifier()))
 models.append(('CART', DecisionTreeClassifier()))
-models.append(('NV',GaussianNB()))
+models.append(('NB',GaussianNB()))
 models.append(('SVM', SVC(gamma='auto')))
 
 # %%
@@ -53,4 +54,22 @@ for name , model in models:
   results.append(cv_results)
   names.append(name)
   print('%s: %f (%f)' %(name, cv_results.mean(), cv_results.std()))
+# %%
+# Compare Algorithms
+plt.boxplot(results, label=names)
+plt.title('Algorithm Comparison')
+plt.show()
+
+# %%
+# make prediction on validation dataset
+model = SVC(gamma= 'auto')
+model.fit(X_train , Y_train)
+predictions = model.predict(X_validation)
+
+# %%
+# Evaluate predictions
+print(accuracy_score(Y_validation, predictions))
+print(confusion_matrix(Y_validation, predictions))
+print(classification_report(Y_validation, predictions))
+
 # %%
